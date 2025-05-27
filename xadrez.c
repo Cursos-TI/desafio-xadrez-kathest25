@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 // Desafio de Xadrez - MateCheck
 // Estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
@@ -8,20 +7,20 @@ int main() {
     int movBispo = 5;
     int movRainha = 8;
 
-    // Movimento da Torre (recursivo)
+    // Movimento da Torre
     printf("Movimento Torre:\n");
     moverTorre(movTorre);
 
-    // Movimentação do Bispo (recursivo com loops)
+    // Movimentação do Bispo 
     printf("\n Movimento Bispo:\n");
     moverBispo(movBispo);
 
-    // Movimentação da Rainha (recursiva)
+    // Movimentação da Rainha 
     printf("\nMovimento Rainha:\n");
     moverRainha(movRainha);
 
     // Movimentação do Cavalo com loops complexos
-    printf("\nMovimento do Cavalo (para cima e direita):\n");
+    printf("\nMovimento Cavalo (para cima e direita):\n");
     int i, j;
     int movimentos = 0;
 
@@ -36,13 +35,42 @@ int main() {
             } else if (movimentos == 2 && j == 1) {
                 printf("Direita\n");
                 movimentos++;
-                break; // completa o "L"
+                break; // para fazer "L"
             }
         }
         if (movimentos >= 3) {
             break; // movimento completo
         }
     }
-    
+
+// Recursão para mover a Torre
+void moverTorre(int casas) {
+    if (casas > 0) {
+        printf("Direita\n");
+        moverTorre(casas - 1);
+        }
+    }
+
+// Recursão para mover o Bispo utilizando loops
+void moverBispo(int passos) {
+    if (passos > 0) {
+    // Loop externo: 1 passo para cima
+        for (int v = 0; v < 1; v++) {
+            printf("Cima");
+            // Loop interno: 1 passo para a direita
+            for (int h = 0; h < 1; h++) {
+                printf("Direita\n");
+                moverBispo(passos - 1);
+        }
+    }
+
+    // Recursão para mover a Rainha 
+    void moverRainha(int casas) {
+        if (casas > 0) {
+            printf("Esquerda\n");
+            moverRainha(casas - 1);
+        }
+    }
+
     return 0;
 }
