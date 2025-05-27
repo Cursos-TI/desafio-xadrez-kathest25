@@ -1,6 +1,7 @@
 #include <stdio.h>
 // Desafio de Xadrez - MateCheck
 // Estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+// Primeiramente são declaradas as variáveis e as movimentações de cada peça. Depois, cada recursão dos movimentos.
 
 int main() {
     int movTorre  = 5;
